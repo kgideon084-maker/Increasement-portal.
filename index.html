@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Increasement Portal Demo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f3f5f7;
+color:#222;
+}
+
+header{
+background:#18b33f;
+color:white;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:700;
+}
+
+.notification{
+background:white;
+padding:15px;
+display:flex;
+align-items:center;
+border-bottom:4px solid #18b33f;
+}
+
+.circle{
+width:50px;
+height:50px;
+background:#18b33f;
+border-radius:50%;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+margin-right:15px;
+}
+
+.banner{
+width:100%;
+height:230px;
+object-fit:cover;
+}
+
+.container{
+width:92%;
+max-width:500px;
+margin:20px auto;
+}
+
+.card{
+background:white;
+padding:30px 20px;
+border-radius:20px;
+margin-bottom:20px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#18b33f;
+font-size:32px;
+margin-bottom:15px;
+}
+
+.card p{
+color:#666;
+font-size:17px;
+margin-bottom:25px;
+}
+
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:40px;
+background:#18b33f;
+color:white;
+font-size:20px;
+font-weight:bold;
+}
+
+.services h3{
+color:#18b33f;
+margin-bottom:15px;
+}
+
+footer{
+background:#18b33f;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+
+/* POPUP */
+
+.popup{
+
+position:fixed;
+top:20px;
+right:20px;
+width:320px;
+background:white;
+padding:15px;
+border-radius:15px;
+border-left:5px solid #18b33f;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+display:flex;
+align-items:center;
+gap:12px;
+
+transform:translateX(400px);
+transition:.5s;
+z-index:999;
+
+}
+
+.popup.show{
+transform:translateX(0);
+}
+
+
+.popup-icon{
+
+width:45px;
+height:45px;
+border-radius:50%;
+background:#18b33f;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+
+}
+
+.popup h4{
+font-size:16px;
+}
+
+.popup p{
+font-size:13px;
+color:#777;
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+Increasement Portal
+</header>
+
+
+<div class="notification">
+
+<div class="circle">
+A
+</div>
+
+<div>
+<h3>Welcome User</h3>
+<p>Demo dashboard active</p>
+</div>
+
+</div>
+
+
+<img class="banner"
+src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200&q=80">
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2>
+Increase Your Credit Limit
+</h2>
+
+
+<p>
+Manage your account dashboard,
+review activity and explore available features.
+</p>
+
+
+<button onclick="location.href='verify.html'">
+Continue
+</button>
+
+</div>
+
+
+
+<div class="card services">
+
+<h3>
+Our Services
+</h3>
+
+<p>
+
+✔ Account Dashboard<br><br>
+
+✔ Verification Center<br><br>
+
+✔ Activity History<br><br>
+
+✔ Secure Interface<br><br>
+
+✔ Mobile Friendly
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+Terms | Privacy | Support
+
+<br><br>
+
+© 2026 Increasement Portal Demo
+
+</footer>
+
+
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<div class="popup-icon">
+✓
+</div>
+
+<div>
+
+<h4 id="title">
+Update
+</h4>
+
+<p id="message">
+New activity available
+</p>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+let alerts=[
+
+[
+"Dashboard Updated",
+"New demo activity has been recorded"
+],
+
+[
+"Security Check",
+"Your demo session is protected"
+],
+
+[
+"Profile Review",
+"Your information section was opened"
+],
+
+[
+"Activity Saved",
+"Recent demo activity completed"
+]
+
+];
+
+
+let count=0;
+
+
+function popup(){
+
+let box=document.getElementById("popup");
+
+document.getElementById("title").innerHTML=
+alerts[count][0];
+
+document.getElementById("message").innerHTML=
+alerts[count][1];
+
+
+box.classList.add("show");
+
+
+setTimeout(()=>{
+
+box.classList.remove("show");
+
+},4000);
+
+
+
+count++;
+
+if(count>=alerts.length){
+
+count=0;
+
+}
+
+}
+
+
+setTimeout(popup,2000);
+
+setInterval(popup,7000);
+
+
+
+</script>
+
+
+</body>
+</html>
